@@ -1,3 +1,6 @@
+# Public Trading Endpoints
+
+In order to discover other topics go back to [Table of Contents](README.md)
 
 ## Exchange Info
 
@@ -27,7 +30,7 @@ Response data is in JSON format. Asset data and pair data are described below.
 In response model, assets field contains an asset data array. Each asset data includes these fields:
 
 | Field Name          | Field Type  | Description |
-| ------------------- | ----------- | ----------- |
+| :------------------ | :---------- | :---------- |
 | symbol              | string      | Asset symbol, BTC. |
 | name                | string      | Asset name, Bitcoin. |
 | description         | string      | Asset description. |
@@ -47,7 +50,7 @@ In response model, assets field contains an asset data array. Each asset data in
 In response model, pairs field contains an pair data array. Each pair data includes these fields:
 
 | Field Name          | Field Type  | Description |
-| ------------------- | ----------- | ----------- |
+| :------------------ | :---------- | :---------- |
 | symbol              | string      | Pair Symbol, BTCUSDT. |
 | base                | string      | Base asset symbol, BTC. |
 | quote               | string      | Quote asset symbol, USDT. |
@@ -65,3 +68,93 @@ In response model, pairs field contains an pair data array. Each pair data inclu
 | status              | string      | Pair matching engine status. |
 | marketTypes         | string[]    | Supported market types such as SPOT, CROSS, ISOLATED |
 | orderTypes          | string[]    | Supported order types such as MARKET, LIMIT, STOP_MARKET. |
+
+<br />
+
+## Tickers
+
+Returns all ticker data.
+
+<pre> <b>GET</b> /v1/tickers </pre>
+
+Ticker object fields and values are described below:
+
+#### Ticker Object
+
+| Field Name | Field Type | Description |
+| :--------- | :--------- | :---------- |
+| avg        | string     | Average price for last 24 hours. |
+| ask        | string     | Best open ask order price. |
+| bid        | string     | Best open bid order price. |
+| change     | string     | Price change percentage between now and 24 hours ago. |
+| qty        | string     | Price change quantity between now and 24 hours ago. |
+| high       | string     | Highest price in last 24 hours. |
+| last       | string     | Last trade's price value. |
+| low        | string     | Lowest price in last 24 hours. |
+| symbol     | string     | Pair Symbol, BTCUSDT |
+| volume     | string     | 24-hour volume in base asset. |
+
+Here is a sample ticker value:
+
+```
+[{
+	"symbol": "BTCUSDT",
+	"last": "48179",
+	"ask": "48179",
+	"bid": "48024",
+	"high": "48179",
+	"low": "48024",
+	"avg": "48101.5",
+	"change": "2.35",
+	"qty": "123",
+	"volume": "12345"
+},
+{
+	"symbol": "ETHUSDT",
+	...
+}]
+```
+
+<br />
+
+## Order Book
+
+Order book endpoints returns best ask and bid orders of a pair. Returns maximum 50 rows for each side.
+
+<pre> <b>GET</b> /v1/orderbook </pre>
+
+**Querystrings**
+
+| Name    | Optional | Description |
+| :------ | :------- | :---------- |
+| symbol  | No       | Pair symbol in BTCUSDT format |
+
+To reduce the network usage, frequently recurring field names are minified.
+- Field name **p**, represents **Price** as **string**.
+- Field name **q**, represents **Quantity** as **string**.
+
+Here an example response:
+
+```
+{
+	"pairSymbol": "BTCUSDT",
+	"asks": [{
+		"p": "48179",
+		"q": "0.18574314"
+	},
+	{
+		"p": "48180",
+		"q": "0.64521519"
+	}],
+	"bids": [{
+		"p": "48076",
+		"q": "1.02465343"
+	},
+	{
+		"p": "48010",
+		"q": "0.1"
+	}]
+}
+```
+
+<br />
