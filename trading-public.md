@@ -158,3 +158,96 @@ Here an example response:
 ```
 
 <br />
+
+## Last Trades
+
+Last Trades endpoint returns last trades of a pair. That endpoint returns maximum last 50 trades.
+
+<pre> <b>GET</b> /v1/trades/last </pre>
+
+**Querystrings**
+
+| Name    | Optional | Description |
+| :------ | :------- | :---------- |
+| symbol  | No       | Pair symbol in BTCUSDT format |
+
+To reduce the network usage, frequently recurring field names are minified.
+- Field name **d**, represents **Date** in unix seconds
+- Field name **s**, represents **Side** BUY or SELL
+- Field name **p**, represents **Price** in string
+- Field name **q**, represents **Quantity** in string
+
+Here an example response:
+
+```
+{
+	"pairSymbol": "BTCUSDT",
+	"trades": [
+	{
+		"d": 1653900040,
+		"p": "48179",
+		"q": "0.00269827",
+		"s": "BUY"
+	},
+	{
+		"d": 1653900034,
+		"p": "48024",
+		"q": "0.01",
+		"s": "SELL"
+	},
+	...
+	]
+}
+```
+
+<br />
+
+
+## K-Line Data
+
+K-line data is a public endpoint. It requires some parameters to get the data.
+
+<pre> <b>GET</b> /v1/trades/kline </pre>
+
+**Querystrings**
+
+| Name       | Optional | Description |
+| :--------- | :------- | :---------- |
+| symbol     | No       | Pair symbol in BTCUSDT format |
+| from       | No       | Start time in unix seconds |
+| to         | No       | End time in unix seconds |
+| resolution | No       | Resolution for the data. For minutes; 1,5,15,60,240. For daily 1D, for weekly 1W. |
+
+**Example request**
+
+```GET /sapi/v1/trades/kline?symbol=BTCUSDT&from=1645959477&to=1646200676&resolution=60```
+
+Returns hourly kline data. Response data seems like:
+
+```
+{
+	"s": "ok",
+	"t": [1646526190],
+	"h": [35563],
+	"o": [35563],
+	"l": [35467],
+	"c": [35471],
+	"v": [2771.6414367800016]
+}
+```
+
+Each index represents a candle.
+for example for index 2. close price is c[2] and open price is o[2] and the time is t[2].
+Another index represents another candle.
+
+- **s :** if request proceed succesfuly, the value is always "ok"
+- **t :** time series in unix seconds
+- **h :** highest price
+- **l :** lowest price
+- **o :** open price
+- **c :** closed price
+- **v :** candle volume in base asset
+
+<br />
+
+In order to discover other topics go back to [Table of Contents](README.md)
