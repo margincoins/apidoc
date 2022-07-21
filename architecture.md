@@ -23,19 +23,19 @@ curl https://api.margincoins.com/v1/sapi/order
 --header "MC-NONCE: " \
 ```
 
-#### Public API Key
+### Public API Key
 
 The public key you created in your [account page](https://www.margincoins.com/account/api-management).
 
-#### Signature
+### Signature
 
 Signature is an HMAC-SHA256 encoded message. The HMAC-SHA256 code must be generated using a private key that contains a timestamp as nonce and your API key.
 
-#### Timestamp
+### Timestamp
 
 Timestamp is an integer value. It must be current timestamp in millliseconds.
 
-#### Nonce
+### Nonce
 
 Nonce is a tolerance for timestamp value. If you application's time is different from the server time. Maximum allowed value is 60 seconds (60000 in milliseconds). For example, if your nonce value is 15000, your signature will be valid for 15 seconds.
 
@@ -83,13 +83,13 @@ using (HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(apiSecret)))
 
 ## Status Codes
 
-#### Successful Status Codes
+### Successful Status Codes
 
 - **200 OK** Request proceed successfuly
 - **201 Created** New object is created successfuly
 - **204 No Content** The object is deleted
 
-#### Client Side Errors
+### Client Side Errors
 
 - **400 Bad Request** Request has invalid or missing parameters.
 - **401 Unauthorized** Authentication is invalid.
@@ -98,7 +98,7 @@ using (HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(apiSecret)))
 - **422 Unprocessable Entity** The operation could not completed because of some reasons detailed in response body.
 - **429 Too Many Requests** You requests are being rate limited
 
-#### Server Side Errors
+### Server Side Errors
 
 - **500 Internal Server** Error Something went wrong in server.
 - **503 Service Unavailable** Your connection is lost or the server is unavailable because of some reasons.
@@ -109,11 +109,11 @@ using (HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(apiSecret)))
 
 All Responses are in JSON Format
 
-#### Asset
+### Asset
 
 Crypto currencies are represented as asset. The fields in JSON models with name asset, assetSymbol etc, corresponds to a crypto currency such as BTC, ETH
 
-#### Quantity
+### Quantity
 
 The fields represent money are named as quantity. Quantity values are represented in string format. You should be careful about decimals and precisions. Quantity values never includes thousand seperators. And only dot (.) is used as seperator. You should not use comma for decimal seperators.
 
@@ -128,11 +128,11 @@ Here are some examples:
 }
 ```
 
-#### Timestamp
+### Timestamp
 
 All times in API endpoints are in unix milliseconds format. You should send time values in unix time milliseconds in your requests. And be aware, all responses includes time values in unix milliseconds formats.
 
-#### Enums
+### Enums
 
 Enums are in string format and always UPPER_SNAKE_CASE. Here are some examples:
 - Order Statuses; OPEN, FILL, CANCEL
@@ -161,7 +161,7 @@ Error Model Example:
 }
 ```
 
-#### Error Message Table
+### Error Message Table
 
 | Code | Message |
 | --- | ----------- |
