@@ -296,3 +296,7 @@ User trade model is described below:
 	"hasNextPage": true
 }
 ```
+
+<br />
+
+In order to discover other topics go back to [Table of Contents](README.md)
