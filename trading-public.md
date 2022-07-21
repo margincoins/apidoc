@@ -25,7 +25,7 @@ Response data is in JSON format. Asset data and pair data are described below.
 }
 ```
 
-#### Asset Data
+### Asset Data
 
 In response model, assets field contains an asset data array. Each asset data includes these fields:
 
@@ -45,7 +45,7 @@ In response model, assets field contains an asset data array. Each asset data in
 
 <br />
 
-#### Pair Data
+### Pair Data
 
 In response model, pairs field contains an pair data array. Each pair data includes these fields:
 
@@ -79,7 +79,7 @@ Returns all ticker data.
 
 Ticker object fields and values are described below:
 
-#### Ticker Object
+### Ticker Object
 
 | Field Name | Field Type | Description |
 | :--------- | :--------- | :---------- |
@@ -123,7 +123,7 @@ Order book endpoints returns best ask and bid orders of a pair. Returns maximum 
 
 <pre> <b>GET</b> /v1/orderbook </pre>
 
-**Querystrings**
+### Querystrings
 
 | Name    | Optional | Description |
 | :------ | :------- | :---------- |
@@ -165,7 +165,7 @@ Last Trades endpoint returns last trades of a pair. That endpoint returns maximu
 
 <pre> <b>GET</b> /v1/trades/last </pre>
 
-**Querystrings**
+### Querystrings
 
 | Name    | Optional | Description |
 | :------ | :------- | :---------- |
@@ -209,7 +209,7 @@ K-line data is a public endpoint. It requires some parameters to get the data.
 
 <pre> <b>GET</b> /v1/trades/kline </pre>
 
-**Querystrings**
+### Querystrings
 
 | Name       | Optional | Description |
 | :--------- | :------- | :---------- |
@@ -218,7 +218,7 @@ K-line data is a public endpoint. It requires some parameters to get the data.
 | to         | No       | End time in unix seconds |
 | resolution | No       | Resolution for the data. For minutes; 1,5,15,60,240. For daily 1D, for weekly 1W. |
 
-**Example request**
+### Example Request
 
 ```GET /sapi/v1/trades/kline?symbol=BTCUSDT&from=1645959477&to=1646200676&resolution=60```
 
