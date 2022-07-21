@@ -23,7 +23,7 @@ Spot wallet object fields and values are described below.
 | request    | string      | Processing withdrawal total. |
 | total      | string      | Total balance. |
 
-#### Example Response
+### Example Response
 
 ```json
 [
