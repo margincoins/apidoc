@@ -10,7 +10,7 @@ That endpoint supports placing all type of orders such as limit, market, stop et
 
 Request body must be in JSON Format. Fields of JSON object are described below:
 
-#### Request JSON Model Fields
+### Request JSON Model Fields
 
 | Name         | Optional | Description |
 | :----------- | :------- | :---------- |
@@ -41,7 +41,7 @@ Response model fields are described below:
 | matchedTotal | string      | Sum of "price x quantity" values of all trades of the order. |
 | trades       | object[]    | Order's trades. For market orders, that array will always elements. |
 
-#### Example Request
+### Example Request
 
 ```json
 {
@@ -55,7 +55,7 @@ Response model fields are described below:
 }
 ```
 
-#### Example Response
+### Example Response
 
 ```json
 {
@@ -82,7 +82,7 @@ You can cancel your all orders from this endpoint.
 
 <pre> <b>DELETE</b> /sapi/v1/orders </pre>
 
-#### Querystrings
+### Querystrings
 
 | Name       | Optional | Description |
 | :--------- | :------- | :---------- |
@@ -107,7 +107,7 @@ Extra information is included in body in JSON format.
 
 <pre> <b>GET</b> /sapi/v1/orders </pre>
 
-#### Querystrings
+### Querystrings
 
 | Name    | Optional | Description |
 | :------ | :------- | :---------- |
@@ -118,7 +118,7 @@ Extra information is included in body in JSON format.
 Response is in JSON format.
 The result is wrapped within pagination model. Both models are described below:
 
-#### Pagination Model
+### Pagination Model
 
 | Field Name      | Field Type  | Description |
 | :-------------- | :---------- | :---------- |
@@ -131,7 +131,7 @@ The result is wrapped within pagination model. Both models are described below:
 | hasPreviousPage | boolean     | True, if the page is not first page |
 | items           | object[]    | The result items |
 
-#### Open Order
+### Open Order
 
 | Field Name   | Field Type  | Description |
 | :----------- | :---------- | :---------- |
@@ -149,7 +149,7 @@ The result is wrapped within pagination model. Both models are described below:
 | type         | string      | Order type; LIMIT, MARKET, STOP_MARKET, STOP_LIMIT |
 | clientId     | string      | Client Id |
 
-#### Example Response
+### Example Response
 
 ```json
 {
@@ -199,7 +199,7 @@ The result is wrapped within pagination model. Both models are described below:
 
 <pre> <b>GET</b> /sapi/v1/orders/history </pre>
 
-#### Querystrings
+### Querystrings
 
 | Name    | Optional | Description |
 | :------ | :------- | :---------- |
@@ -221,7 +221,7 @@ The result is wrapped within [pagination model](#pagination-model) and order mod
 
 <pre> <b>GET</b> /sapi/v1/trades </pre>
 
-#### Querystrings
+### Querystrings
 
 | Name     | Optional | Description |
 | :------- | :------- | :---------- |
@@ -237,7 +237,7 @@ Response is in JSON format.
 The result is wrapped within pagination [pagination model](#pagination-model).
 User trade model is described below:
 
-#### User Trade Model
+### User Trade Model
 
 | Name       | Optional | Description |
 | :--------- | :------- | :---------- |
@@ -250,7 +250,7 @@ User trade model is described below:
 | side       | string   | Trade Side; BUY or SELL |
 | total      | string   | Total equals "price x quantity" |
 
-#### Example Response
+### Example Response
 
 ```json
 {
