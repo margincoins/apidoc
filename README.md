@@ -62,5 +62,5 @@ This documentation details use of Margin Coins REST API for spot and margin exch
 - [Tickers Channel](websockets.md#tickers-channel) - Websocket ticker channels and receiving ticker data
 - [Order Book Channel](websockets.md#order-book-channel) - Websocket orderbook channels and receiving orderbook and difference data
 - [Tradingview Channel](websockets.md#tradingview-channel) - Websocket tradingview channels and receiving last tradingview candle data over websockets
-- [Order Status & Trade](websockets.md#order-status-trade) - Receiving notifications about order status changes and new trade data over websockets
+- [Order Status & Trade](websockets.md#order-status--trade) - Receiving notifications about order status changes and new trade data over websockets
 - [Balance Changes](websockets.md#balance-changes) - Receiving balance change notifications over websockets
